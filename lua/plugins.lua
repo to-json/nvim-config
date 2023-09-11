@@ -66,6 +66,7 @@ local plugins = {
   'hashivim/vim-vagrant',
   'luisjure/csound-vim',
   'ziglang/zig.vim',
+  'fatih/vim-go',
   -- color schemes
   'srcery-colors/srcery-vim',
   'sainnhe/everforest',

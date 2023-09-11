@@ -25,6 +25,8 @@ brew install tree-sitter \
              tree \
              alacritty \
              font-iosevka-nerd-font \
+             font-comic-shanns-mono-nerd-font \
+             font-comic-mono \
              hammerspoon \
              lulu \
              obs \
@@ -32,4 +34,14 @@ brew install tree-sitter \
              bash-language-server \
              clojure-lsp-native \
              lua-language-server \
-             yaml-language-server
+             yaml-language-server \
+             go \
+             typescript \
+             ruby-install \
+             chruby
+
+
+
+go install golang.org/x/tools/gopls@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+pip3 install jedi-language-server ruff ruff-lsp

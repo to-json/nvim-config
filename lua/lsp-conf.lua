@@ -42,17 +42,12 @@ local function on_attach(args)
     merge_tables(opts, {desc = "rename this symbol"}))
   vim.keymap.set('n', '<Leader>lr', vim.lsp.buf.references,
     merge_tables(opts, {desc = "show all references to this symbol"}))
-  vim.keymap.set('n', '<Leader>le', vim.diagnostic.show,
+  vim.keymap.set('n', '<Leader>le', vim.diagnostic.open_float,
     merge_tables(opts, {desc = "show diagnostics"}))
   vim.keymap.set('n', '<Leader>la', vim.lsp.buf.code_action,
     merge_tables(opts, {desc = "show code actions"}))
--- Set some keybinds conditional on server capabilities
-  if client.server_capabilities.document_formatting then
-    vim.keymap.set("n", "<Leader>lF", vim.lsp.buf.formatting, opts)
-  end
-  if client.server_capabilities.document_range_formatting then
-    vim.keymap.set("n", "<Leader>lf", vim.lsp.buf.range_formatting, opts)
-  end
+  vim.keymap.set("n", '<Leader>lf', vim.lsp.buf.format,
+    merge_tables(opts, {desc = "format buffer"}))
 -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.document_highlight then
     vim.api.nvim_exec([[
@@ -89,12 +84,33 @@ end
 nvim_lsp["lua_ls"].setup { settings = {
     Lua = {
       diagnostics = {
-        globals = {"vim"}}}}}
+        globals = {"vim", "hs"}
+      },
+      workspace = {
+        library = {
+            [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+            ['/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/'] = true,
+        },
+      }
+    }
+  }
+};
 
 local rt = require("rust-tools")
 
 rt.setup({
   server = {
+    settings = {
+      ['rust-analyzer'] = {
+        cargo = {
+          autoReload = true,
+          checkOnSave = {
+            command = "clippy",
+          },
+        }
+      }
+    },
     on_attach = function(_, bufnr)
       -- Hover actions
       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
