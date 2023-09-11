@@ -11,3 +11,9 @@ set.wrap = false            -- no word wrap
 set.hidden = true           -- hide unsaved buffers
 set.hlsearch = true         -- highlight search results
 set.relativenumber = true   -- relative line numbers
+set.termguicolors = true    -- good terminal colors
+set.background = 'dark'     -- dark mode
+vim.api.nvim_cmd({
+  cmd = 'colorscheme',
+  args = {'everforest'}
+}, {})

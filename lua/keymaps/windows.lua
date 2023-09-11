@@ -1,8 +1,5 @@
-wk = require('which-key')
-wk.setup {}
-wk.register({
-  w = {
-    name = "+window",
+local window_keymaps = { w = {
+    name = "󰑃 window",
 
     h = { ":wincmd h<CR>", "move cursor one window left" },
     j = { ":wincmd j<CR>", "move cursor one window down" },
@@ -33,5 +30,6 @@ wk.register({
     F = { ":wincmd F<CR>", "split to open the filename under cursor at specified line" },
 
     c = { ":wincmd c<CR>", "close the current window" },
-    z = { ":wincmd z<CR>", "close any 'preview' window" },
-  }}, {prefix = "<leader>"})
+    z = { ":wincmd z<CR>", "close any 'preview' window" }}}
+
+WK.register(window_keymaps, {prefix = "<leader>"})
