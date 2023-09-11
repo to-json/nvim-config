@@ -1,0 +1,6 @@
+require('lazy-bootstrap')
+require('plugins')
+require('treesitter')
+require('which-key-maps')
+require('windline-statusbar')
+require('set-options')
