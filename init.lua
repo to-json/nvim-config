@@ -1,19 +1,11 @@
-require('lazy-bootstrap')
-require('plugins')
-require('treesitter-conf')
-require('windline-conf')
-require('cmp-conf')
-require('lsp-conf')
-require('nap-conf')
-require('telescope-conf')
-require('mini-conf')
-require('leap-conf')
-require('org-conf')
-require('option-conf')
-require('faust-conf')
-require('neogen-conf')
-require('keymaps')
+-- moved the mini.nvim installer to a separate file
+require('mini-install')
+require('base')
+require('windows')
+require('autocmds')
+-- this should not be in init but is useful there while i test
+require('ide-tools')
+-- these two are new to me and i'm trying them as alternatives to fugitive
+require('mini.git').setup()
+require('mini.diff').setup()
 
-if vim.g.neovide then
-  require('neovide-conf')
-end
