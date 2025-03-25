@@ -1,6 +1,7 @@
 -- i historically don't go anywhere without a jj mapping
 -- altho i'm trying out kj bc i want to use jj vcs
-vim.keymap.set("i", "kj", "<Esc>", { noremap = true })
+-- nah fuck that jj
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true })
 -- global dependencies
 local md = require('mini.deps')
 md.setup({})
