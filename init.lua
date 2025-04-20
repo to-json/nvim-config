@@ -2,7 +2,7 @@
 require 'mini-install'
 require 'junk'
 require 'base'
-NormalMapKey("<leader>@", function() require('ai') end, "Activate so-called AI features")
+NormalMapKey("<leader>@", function() require('copilot') end, "Activate copilot")
 require 'ftplugins'
 require 'windows'
 require 'autocmds'

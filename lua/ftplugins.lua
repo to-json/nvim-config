@@ -7,3 +7,4 @@
 local deps = require('mini.deps')
 deps.setup({})
 deps.add({ source = 'https://github.com/mrcjkb/rustaceanvim.git' })
+deps.add({ source = 'https://github.com/fatih/vim-go.git' })

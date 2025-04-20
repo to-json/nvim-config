@@ -73,3 +73,15 @@ require('mini.pick').setup()
 require('mini.extra').setup()
 -- zoom, put, and resize window
 require('mini.misc').setup()
+-- filesystem visit tracking
+require('mini.visits').setup()
+
+-- picker keys
+NormalMapKey("<Leader>ff", 
+	function() MiniPick.builtin.files({tool='git'}) end,
+	"Find Files (current git repo)")
+
+NormalMapKey("<Leader>fb", 
+	function() MiniPick.builtin.buffers() end,
+	"Find buffers")
+
